@@ -171,13 +171,12 @@ This project is licensed under the MIT License.
 
 ---
 
-**Made with ❤️ for the Sinhala language community**
-
 ## 📞 Quick Help
 
 **Just want to use it?** → Double-click `start_app.bat`  
 **Want better translations?** → Run `python train_model.py`  
 **Need help?** → Check the troubleshooting section above
 
+---
 
 Crafted with care by [TYehan](https://github.com/TYehan)

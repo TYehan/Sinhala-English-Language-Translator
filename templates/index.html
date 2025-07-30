@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TranslateHub - Sinhala & English</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Noto+Sans+Sinhala:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="main-container">
+        <header class="app-header">
+            <h1 class="app-title">TranslateHub</h1>
+            <p class="app-subtitle">Your Gateway to Sinhala and English Translation</p>
+        </header>
+
+        <div class="translator-body">
+            <form id="translation-form" method="POST">
+                <input type="hidden" name="source_lang" id="source-lang-value" value="{{ source_lang | default('English') }}">
+                <input type="hidden" name="target_lang" id="target-lang-value" value="{{ target_lang | default('Sinhala') }}">
+
+                <div class="language-selector">
+                    <div class="lang-box" id="source-lang-display">
+                        <span id="source-lang-name">{{ source_lang | default('English') }}</span>
+                    </div>
+                    <button type="button" class="swap-button" id="swap-btn" title="Swap Languages">
+                        <i class="fas fa-exchange-alt"></i>
+                    </button>
+                    <div class="lang-box" id="target-lang-display">
+                        <span id="target-lang-name">{{ target_lang | default('Sinhala') }}</span>
+                    </div>
+                </div>
+
+                <div class="text-areas">
+                    <div class="text-box source-box">
+                        <textarea name="source_text" id="source-input" placeholder="Enter text to translate...">{{ source_text | default('') }}</textarea>
+                        <div class="text-box-toolbar">
+                            <button type="button" class="icon-btn" id="clear-input-btn"><i class="fas fa-times"></i></button>
+                            <span id="source-char-count">0</span>
+                        </div>
+                    </div>
+                    <div class="text-box target-box">
+                        <div id="translation-output">
+                            {% if result %}
+                                {{ result.translation }}
+                            {% else %}
+                                <span class="placeholder-text">Translation appears here</span>
+                            {% endif %}
+                        </div>
+                        <div class="text-box-toolbar">
+                            <button type="button" class="icon-btn" id="copy-output-btn"><i class="far fa-copy"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="translate-btn">Translate</button>
+            </form>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

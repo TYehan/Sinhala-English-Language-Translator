@@ -1,0 +1,12 @@
+TranslateHub Fine-Tuned Model
+============================
+Base model: Helsinki-NLP/opus-mt-en-mul
+Training samples: 1000 (from 81082 total)
+Epochs: 3
+Batch size: 4
+Learning rate: 5e-05
+Final average loss: 0.8209
+Device: cpu
+Created: 2025-07-31 01:54:59
+Dataset: sinhala_english_sentences_dataset.csv
+Author: Tharindu Yehan
